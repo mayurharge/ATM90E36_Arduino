@@ -289,7 +289,7 @@
 		unsigned short GetSysStatus1();
 		unsigned short GetMeterStatus0();
 		unsigned short GetMeterStatus1();
-
+		bool errorCheckSPI();
 		/* Checksum Function */
 		bool calibrationError();
 	};
