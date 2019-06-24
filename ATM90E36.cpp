@@ -596,7 +596,7 @@ void ATM90E36::begin()
  Serial.println(i,HEX);
 
 }
-void ATM90E36::begin(int Ugaina,int Ugaina,int Ugaina, int Igaina, int Igainb, int Igainc )
+void ATM90E36::Begin(int Ugaina,int Ugaina,int Ugaina, int Igaina, int Igainb, int Igainc )
 {  
 // pinMode(energy_IRQ, INPUT); // (In development...)
  // pinMode(energy_IRQ, INPUT); // (In development...)
