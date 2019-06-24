@@ -238,7 +238,7 @@
 
 		/* Initialization Functions */	
 		void begin();
-		
+		void Begin(int Ugaina,int Ugaina,int Ugaina, int Igaina, int Igainb, int Igainc );
 		/* Main Electrical Parameters (GET)*/
 		double GetLineVoltageA();
 		double GetLineVoltageB();
