@@ -596,7 +596,7 @@ void ATM90E36::begin()
  Serial.println(i,HEX);
 
 }
-void ATM90E36::Begin(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, int Igainc )
+void ATM90E36::Begin(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, int Igainc, int mMode0 )
 {  
 // pinMode(energy_IRQ, INPUT); // (In development...)
  // pinMode(energy_IRQ, INPUT); // (In development...)
@@ -623,7 +623,7 @@ void ATM90E36::Begin(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, i
  CommEnergyIC(WRITE, ConfigStart, 0x5678); // Metering calibration startup
  CommEnergyIC(WRITE, PLconstH, 0x0861);    // PL Constant MSB (default)
  CommEnergyIC(WRITE, PLconstL, 0xC468);    // PL Constant LSB (default)
- CommEnergyIC(WRITE, MMode0, 0x0087);      // Mode Config (50 Hz, 3P3W)
+ CommEnergyIC(WRITE, MMode0, mMode0);      // Mode Config (50 Hz, 3P3W)
  CommEnergyIC(WRITE, MMode1, 0x5555);      // 0x5555 (x2) // 0x0000 (1x)
  CommEnergyIC(WRITE, PStartTh, 0x0000);    // Active Startup Power Threshold
  CommEnergyIC(WRITE, QStartTh, 0x0000);    // Reactive Startup Power Threshold
