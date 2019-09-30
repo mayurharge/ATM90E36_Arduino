@@ -571,15 +571,15 @@ void ATM90E36::begin()
   CommEnergyIC(WRITE, AdjStart, 0x5678);    // Measurement calibration
   CommEnergyIC(WRITE, UgainA, 0x678C);   //678C   74BC// A SVoltage rms gain //for 100 A CT 
   CommEnergyIC(WRITE, IgainA,0x3FE6);      //0x2859 A line current gain//for 100 A CT 27E5
-  CommEnergyIC(WRITE, UoffsetA, 0x0000);    // A Voltage offset
+  CommEnergyIC(WRITE, UoffsetA, 0x00FF);    // A Voltage offset
   CommEnergyIC(WRITE, IoffsetA, 0x0000);    // A line current offset
   CommEnergyIC(WRITE, UgainB, 0x66C8);     //066D8  537E B Voltage rms gain
   CommEnergyIC(WRITE, IgainB,0x3FE6);      // B line current gain
-  CommEnergyIC(WRITE, UoffsetB, 0x0005);    // B Voltage offset
+  CommEnergyIC(WRITE, UoffsetB, 0x0FF0);    // B Voltage offset
   CommEnergyIC(WRITE, IoffsetB, 0x0000);    // B line current offset
   CommEnergyIC(WRITE, UgainC, 0x66D2);      //66D2  6D64C Voltage rms gain
   CommEnergyIC(WRITE, IgainC,0x3FE6);      // C line current gain
-  CommEnergyIC(WRITE, UoffsetC, 0x0000);    // C Voltage offset
+  CommEnergyIC(WRITE, UoffsetC, 0x000F);    // C Voltage offset
   CommEnergyIC(WRITE, IoffsetC, 0x0000);    // C line current offset
   CommEnergyIC(WRITE, IgainN,0x3FE6);    // C line current gain
   // CommEnergyIC(WRITE, CSThree, 0x02F6);     // Checksum 3    // Checksum 3
@@ -596,7 +596,7 @@ void ATM90E36::begin()
  Serial.println(i,HEX);
 
 }
-void ATM90E36::Begin(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, int Igainc )
+void ATM90E36::Begin(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, int Igainc ,int mMode0 )
 {  
 // pinMode(energy_IRQ, INPUT); // (In development...)
  // pinMode(energy_IRQ, INPUT); // (In development...)
@@ -623,7 +623,7 @@ void ATM90E36::Begin(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, i
  CommEnergyIC(WRITE, ConfigStart, 0x5678); // Metering calibration startup
  CommEnergyIC(WRITE, PLconstH, 0x0861);    // PL Constant MSB (default)
  CommEnergyIC(WRITE, PLconstL, 0xC468);    // PL Constant LSB (default)
- CommEnergyIC(WRITE, MMode0, 0x0087);      // Mode Config (50 Hz, 3P3W)
+ CommEnergyIC(WRITE, MMode0, mMode0);      // Mode Config (50 Hz, 3P3W)
  CommEnergyIC(WRITE, MMode1, 0x5555);      // 0x5555 (x2) // 0x0000 (1x)
  CommEnergyIC(WRITE, PStartTh, 0x0000);    // Active Startup Power Threshold
  CommEnergyIC(WRITE, QStartTh, 0x0000);    // Reactive Startup Power Threshold
