@@ -596,7 +596,7 @@ void ATM90E36::begin()
  Serial.println(i,HEX);
 
 }
-void ATM90E36::Begin(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, int Igainc, int mMode0 )
+void ATM90E36::calibrate(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, int Igainc, int mMode0 )
 {  
 // pinMode(energy_IRQ, INPUT); // (In development...)
  // pinMode(energy_IRQ, INPUT); // (In development...)
@@ -702,7 +702,7 @@ void ATM90E36::Begin(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, i
   CommEnergyIC(WRITE, IgainC,Igainc);      // C line current gain
   CommEnergyIC(WRITE, UoffsetC, 0x0000);    // C Voltage offset
   CommEnergyIC(WRITE, IoffsetC, 0x0000);    // C line current offset
-  CommEnergyIC(WRITE, IgainN,0x3FE6);    // C line current gain
+  CommEnergyIC(WRITE, IgainN,Igainc);    // C line current gain
   // CommEnergyIC(WRITE, CSThree, 0x02F6);     // Checksum 3    // Checksum 3
 
  // Done with the configuration

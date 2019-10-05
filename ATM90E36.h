@@ -238,7 +238,7 @@
 
 		/* Initialization Functions */	
 		void begin();
-		void Begin(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, int Igainc,int mMode0 );
+		void calibrate(int Ugaina,int Ugainb,int Ugainc, int Igaina, int Igainb, int Igainc,int mMode0 );
 		/* Main Electrical Parameters (GET)*/
 		double GetLineVoltageA();
 		double GetLineVoltageB();
